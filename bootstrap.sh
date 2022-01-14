@@ -40,4 +40,4 @@ if [ -f "$ROLE" ]; then
 fi
 
 echo "Init finish ..."
-while true; do sleep 15 ; done
+#while true; do sleep 15 ; done
