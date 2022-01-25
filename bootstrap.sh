@@ -2,8 +2,8 @@
 echo "start run bootstrap.sh ..."
 ROLE=/workspace/startup/start.sh
 ADMINFILE=/workspace/startup/fl_admin.sh
-SERVER_CFG=/workspace/startp/fed_server.json
-CLIENT_CFG=/workspace/startp/fed_client.json
+SERVER_CFG=/workspace/startup/fed_server.json
+CLIENT_CFG=/workspace/startup/fed_client.json
 
 
 if [[ -z "${FLSERVER}" ]]; then
