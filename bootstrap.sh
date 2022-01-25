@@ -2,6 +2,8 @@
 echo "start run bootstrap.sh ..."
 ROLE=/workspace/startup/start.sh
 ADMINFILE=/workspace/startup/fl_admin.sh
+SERVER_CFG=/workspace/startp/fed_server.json
+CLIENT_CFG=/workspace/startp/fed_client.json
 
 
 if [[ -z "${FLSERVER}" ]]; then
@@ -25,7 +27,13 @@ if [ -f "$ROLE" ]; then
     echo "role: server or client ..."
     chmod +x /workspace/startup/start.sh
     chmod +x /workspace/startup/sub_start.sh
-
+    
+    if [ -f "$SERVER_CFG" ]; then
+	echo "server: add FQDN to /etc/hosts"
+        sed 's/$/ federated.oneai.twcc.ai federated.oneai.twcc.tw\r/' /etc/hosts > tmp.txt
+	cat tmp.txt > /etc/hosts
+        rm tmp.txt
+    fi
 
     if [[ -z "${START}" ]]; then
         echo "start.sh  do not start ..."
