@@ -30,7 +30,7 @@ if [ -f "$ROLE" ]; then
     
     if [ -f "$SERVER_CFG" ]; then
 	echo "server: add FQDN to /etc/hosts"
-        sed 's/$/ federated.oneai.twcc.ai federated.oneai.twcc.tw\r/' /etc/hosts > tmp.txt
+        sed '$s/$/ federated.oneai.twcc.ai federated.oneai.twcc.tw\r/' /etc/hosts > tmp.txt
 	cat tmp.txt > /etc/hosts
         rm tmp.txt
     fi
