@@ -5,5 +5,6 @@ echo "install nvflare"
 pip install nvflare==2.0.14 Pillow==8.2.0
 
 chmod +x $DIR/bootstrap.sh
+cp $DIR/signature.py /opt/conda/lib/python3.8/site-packages/nvflare/lighter/impl/
 $DIR/bootstrap.sh
 
