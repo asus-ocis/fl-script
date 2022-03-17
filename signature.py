@@ -13,31 +13,24 @@
 # limitations under the License.
 
 import os
-import pickle
 import time
+import pickle
 
 from nvflare.lighter.spec import Builder, Study
 from nvflare.lighter.utils import sign_all
 
 
 class SignatureBuilder(Builder):
-    """Creates signatures for all the files signed with the root CA for the startup kits so that they
-    can be cryptographically verified to ensure any tampering is detected. This builder writes the signature.pkl file.
-    """
-
     def build(self, study: Study, ctx: dict):
         server = study.get_participants_by_type("server")
         dest_dir = self.get_kit_dir(server, ctx)
-        file = open(os.path.join(dest_dir, "signature.pkl"), "wb")
         root_pri_key = ctx.get("root_pri_key")
         signatures = sign_all(dest_dir, root_pri_key)
-        pickle.dump(signatures, file)
-        file.close()
-       
+        time.sleep (500/1000)
+        pickle.dump(signatures, open(os.path.join(dest_dir, "signature.pkl"), "wb"))
         for p in study.get_participants_by_type("client", first_only=False):
             dest_dir = self.get_kit_dir(p, ctx)
-            file = open(os.path.join(dest_dir, "signature.pkl"), "wb")
             root_pri_key = ctx.get("root_pri_key")
             signatures = sign_all(dest_dir, root_pri_key)
-            pickle.dump(signatures, file)
-            file.close()
+            time.sleep (500/1000)
+            pickle.dump(signatures, open(os.path.join(dest_dir, "signature.pkl"), "wb"))
