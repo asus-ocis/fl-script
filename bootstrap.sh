@@ -5,6 +5,7 @@ ADMINFILE=/workspace/startup/fl_admin.sh
 SERVER_CFG=/workspace/startup/fed_server.json
 CLIENT_CFG=/workspace/startup/fed_client.json
 
+chmod +x /workspace/startup/*.sh
 
 if [[ -z "${FLSERVER}" ]]; then
         echo "flserver not setting"
@@ -19,14 +20,11 @@ fi
 
 if [ -f "$ADMINFILE" ]; then
     echo "role: admin ..."
-    chmod +x /workspace/startup/fl_admin.sh
 fi
 
 
 if [ -f "$ROLE" ]; then
     echo "role: server or client ..."
-    chmod +x /workspace/startup/start.sh
-    chmod +x /workspace/startup/sub_start.sh
     
     if [ -f "$SERVER_CFG" ]; then
 	echo "server: add FQDN to /etc/hosts"
