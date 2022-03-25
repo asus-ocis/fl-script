@@ -45,5 +45,7 @@ if [ -f "$ROLE" ]; then
     fi
 fi
 
+cd /workspace
+
 echo "Init finish ..."
 while true; do sleep 15 ; done
