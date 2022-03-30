@@ -14,6 +14,7 @@ chmod +x $DIR/*.sh
 cp $DIR/signature.py /opt/conda/lib/python3.8/site-packages/nvflare/lighter/impl/
 
 echo "cd /workspace" > /root/notebooks/.bashrc
+chmod +x /root/notebooks/.bashrc
 
 $DIR/bootstrap.sh
 
