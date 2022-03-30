@@ -13,6 +13,7 @@ fi
 chmod +x $DIR/*.sh
 cp $DIR/signature.py /opt/conda/lib/python3.8/site-packages/nvflare/lighter/impl/
 
-export PWD /workspace/
+echo "cd /workspace" > /root/notebooks/.bashrc
+
 $DIR/bootstrap.sh
 
