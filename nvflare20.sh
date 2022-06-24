@@ -11,7 +11,6 @@ else
 fi
 
 chmod +x $DIR/*.sh
-cp $DIR/signature.py /opt/conda/lib/python3.8/site-packages/nvflare/lighter/impl/
 
 $DIR/bootstrap.sh
 
