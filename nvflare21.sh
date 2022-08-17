@@ -2,7 +2,7 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 echo "Run nvflare21 script ..."
 echo "install nvflare"
-pip install nvflare==2.1.2 Pillow==8.2.0
+pip install nvflare==2.1.4 Pillow==8.2.0
 
 if [ "$(pip list | awk '/pytorch/ {print }'|wc -l)" -ge 1 ]; then
   pip install monai
