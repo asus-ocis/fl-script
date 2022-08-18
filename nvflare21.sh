@@ -10,6 +10,5 @@ else
   echo "pytorch not found"
 fi
 
-pip install --upgrade "protobuf<=3.20.1"
 chmod +x $DIR/*.sh
 $DIR/bootstrap.sh
